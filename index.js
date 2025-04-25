@@ -9,7 +9,11 @@ http
     var q = url.parse(req.url, true);
 
     var filename = "." + q.pathname;
-    if (filename == "./") {
+    if (!filename.endsWith(".html") && filename !== "./") {
+      filename += ".html";
+    }
+
+    if (filename === "./") {
       filename = "./index.html";
     }
 
